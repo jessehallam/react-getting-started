@@ -1,4 +1,6 @@
 const path = require('path');
+const webpack = require('webpack');
+
 const rootPath = path.resolve(__dirname, '../client')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -8,6 +10,7 @@ module.exports = {
 
     entry: [
         '@babel/polyfill',
+        'webpack-hot-middleware/client',
         path.resolve(rootPath, 'index')
     ],
 
@@ -34,7 +37,9 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'index.html')
-        })
+        }),
+
+        new webpack.HotModuleReplacementPlugin()
     ],
 
     resolve: {
