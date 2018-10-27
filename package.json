@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development concurrently \"npm run watch:webpack\" \"npm run watch:server\" ",
+    "dev": "cross-env NODE_ENV=development concurrently -n webpack,express -c cyan,red \"npm run watch:webpack\" \"npm run watch:server\" ",
     "watch:server": "nodemon --watch server --delay 50ms server/index.js",
     "watch:webpack": "nodemon --watch webpack --delay 100ms -x webpack -- --watch --config webpack/webpack.config.js"
   },

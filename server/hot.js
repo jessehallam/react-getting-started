@@ -13,10 +13,10 @@ if (process.env.NODE_ENV !== 'development') {
     module.exports = function (app) {
         app.use(webpackDevMiddleware(compiler, {
             noInfo: true,
-            publicPath: config.output.publicPath
+            publicPath: config.output.publicPath,
+            stats: 'minimal'
         }));
 
-        app.use(webpackHotMiddleware(compiler, {
-        }));
+        app.use(webpackHotMiddleware(compiler, {}));
     };
 }
